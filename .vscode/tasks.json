@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "src/web",
+			"problemMatcher": [],
+			"label": "npm: build - src/web",
+			"detail": "npm build"
+		},
+		{
+			"type": "npm",
+			"script": "serve",
+			"path": "src/web",
+			"problemMatcher": [],
+			"label": "npm: run serve - src/web",
+			"detail": "npm run serve"
+		}
+	]
+} 
