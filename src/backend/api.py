@@ -5,16 +5,15 @@ import random
 import math
 
 def get_progress():
-    # total = get_total_count_from_db()
-    total = 200
 
     # progress = get_total_count_of_graded_from_db()
-    progress = 50
+    progress = math.floor(random.random() * 100)
+    # total = get_total_count_from_db()
+    total = progress + math.floor(random.random() * 200 +50)
     
     result = "{}/{}".format(progress, total)
 
     # update record for future use
-
 
     return {
         "progress": result

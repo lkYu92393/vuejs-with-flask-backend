@@ -6,7 +6,11 @@
     <div>
       Current progress: {{ progress }}
     </div>
-    <div></div>
+    <div>
+      <select v-model="choice">
+        <option v-for="item in itemList" :key=item.key :value=item.key>{{ item.text }}</option>
+      </select>
+    </div>
     <div v-if="hasAPI">
       <button @click="startGrading">Start</button>
     </div>
@@ -16,14 +20,20 @@
 <script>
 import axios from 'axios'
 export default {
-  data () {
+  data() {
     return {
       progress: 'x/y'
-      ,hasAPI: false
+      , hasAPI: false
+      , itemList: [
+        { key: "ein", text: "Choice 1" }
+        , { key: "zwei", text: "Choice 2" }
+        , { key: "drei", text: "Choice 3" }
+      ]
+      , choice: "drei"
     }
   },
   methods: {
-    getProgress () {
+    getProgress() {
       const path = `/api/progress`
       axios.get(path)
         .then(response => {
@@ -34,11 +44,11 @@ export default {
           console.log(error)
         })
     },
-    startGrading () {
+    startGrading() {
       this.$router.push({ path: '/grading' })
     }
   },
-  created () {
+  created() {
     this.getProgress()
   }
 }
